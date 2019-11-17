@@ -1,12 +1,13 @@
 //Declaramos variables de operacion
-var operandoa;
-var operandob;
-var operacion;
+var operandoa=0;
+var operandob=0;
+var operacion=0;
 var resultado=0;	
+var x1=0; //variable para validar cero antes de un numero
 
 //declaramos variables
 function init(){
-var resultado1 = document.getElementById('display');
+var resultado = document.getElementById('display');
 var reset = document.getElementById('on');
 var suma = document.getElementById('mas');
 var resta = document.getElementById('menos');
@@ -98,50 +99,55 @@ cero.addEventListener('mousedown', function() {
 //cargar los numeros para la operacion	
 
 uno.onclick = function(e){
-         if(resultado!=0){
-			 resultado.textContent = resultado.textContent  + "5";
-			 
-			}else{
-			resultado.textContent="1";
-			
+		 if(x1==0){
+			resultado.textContent = "1";
+			x1=1;
+			 }else{
+			resultado.textContent = resultado.textContent  + "1";
 		 }
 	  }
 	  
 dos.onclick = function(e){
-          display.textContent = display.textContent  + "2";
+          	 if(x1==0){
+			resultado.textContent = "2";
+			x1=1;
+			 }else{
+			resultado.textContent = resultado.textContent  + "2";
+		 }
       }
 tres.onclick = function(e){
-          display.textContent = display.textContent  + "3";
+          resultado.textContent = resultado.textContent  + "3";
       }
 cuatro.onclick = function(e){
           display.textContent = display.textContent  + "4";
       }
 cinco.onclick = function(e){
-          display.textContent = display.textContent  + "5";
+          resultado.textContent = resultado.textContent  + "5";
       }
 seis.onclick = function(e){
-          display.textContent = display.textContent  + "6";
+          resultado.textContent = resultado.textContent  + "6";
       }
 siete.onclick = function(e){
-          display.textContent = display.textContent  + "7";
+          resultado.textContent = resultado.textContent  + "7";
       }
 ocho.onclick = function(e){
-          display.textContent = display.textContent  + "8";
+          resultado.textContent = resultado.textContent  + "8";
       }
 nueve.onclick = function(e){
-          display.textContent = display.textContent  + "9";
+          resultado.textContent = resultado.textContent  + "9";
       }
 cero.onclick = function(e){
-          display.textContent = display.textContent  + "0";
+          resultado.textContent = display.textContent  + "0";
       }
 	  	  		  		  	
 on.onclick = function(e){
           resetear();
       }
 	suma.onclick = function(e){
-        operandoa = resultado.textContent;
+		operandoa = resultado.textContent;
         operacion = "+";
         limpiar();
+		x1=0;
 }
       resta.onclick = function(e){
           operandoa = resultado.textContent;
@@ -173,11 +179,12 @@ function resetear(){
   operandoa = 0;
   operandob = 0;
   operacion = "";
+  x1=0;
 }						
 							
  function resolver(){
       var res = 0;
-      switch(operacion){
+    switch(operacion){
         case "+":
           res = parseFloat(operandoa) + parseFloat(operandob);
           break;
