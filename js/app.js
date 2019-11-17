@@ -181,7 +181,11 @@ nueve.onclick = function(e){
 }
 
 cero.onclick = function(e){
-          resultado.textContent = display.textContent  + "0";
+	if(x1==0){
+		resultado.textContent = "0";
+	}else{
+		resultado.textContent = resultado.textContent  + "0";
+		}
 }
 	  	  		  		  	
 on.onclick = function(e){
