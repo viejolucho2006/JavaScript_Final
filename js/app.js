@@ -9,10 +9,13 @@ var x1=0; //variable para validar cero antes de un numero
 function init(){
 var resultado = document.getElementById('display');
 var reset = document.getElementById('on');
+var signo = document.getElementById('sign');
+var punto  = document.getElementById('punto');
 var suma = document.getElementById('mas');
 var resta = document.getElementById('menos');
 var multiplicacion = document.getElementById('por');
 var division = document.getElementById('dividido');
+var raiz = document.getElementById('raiz');
 var igual = document.getElementById('igual');	
 var uno    = document.getElementById('1');
 var dos    = document.getElementById('2');
@@ -26,75 +29,142 @@ var nueve  = document.getElementById('9');
 var cero   = document.getElementById('0');
 
 
+
 uno.addEventListener('mousedown', function(e) {
-		document.getElementById('1').style="width:76px;height: 62px;";
+		document.getElementById('1').style="width:29%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('1').style="width:77px;height: 63px;";
+		document.getElementById('1').style="width:29%;height: 62.91px;";
 		});
 	});
 	  
-dos.addEventListener('mousedown', function() {
-		document.getElementById('2').style="width:76px;height: 62px;";
+dos.addEventListener('mousedown', function(e) {
+		document.getElementById('2').style="width:29%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('2').style="width:77px;height: 63px;";
+		document.getElementById('2').style="width:29%;height: 62.91px;";
 		});
 	});
 	
 tres.addEventListener('mousedown', function() {
-		document.getElementById('3').style="width:76px;height: 62px;";
+		document.getElementById('3').style="width:29%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('3').style="width:77px;height: 63px;";
+		document.getElementById('3').style="width:29%;height: 62.91px;";
 		});
 	});	
 
 cuatro.addEventListener('mousedown', function() {
-		document.getElementById('4').style="width:76px;height: 62px;";
+		document.getElementById('4').style="width:22%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('4').style="width:77px;height: 63px;";
+		document.getElementById('4').style="width:22%;height: 62.91px;";
 		});
 	});
 	  
 cinco.addEventListener('mousedown', function() {
-		document.getElementById('5').style="width:76px;height: 62px;";
+		document.getElementById('5').style="width:22%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('5').style="width:77px;height: 63px;";
+		document.getElementById('5').style="width:22%;height: 62.91px;";
 		});
 	});
 	
 seis.addEventListener('mousedown', function() {
-		document.getElementById('6').style="width:76px;height: 62px;";
+		document.getElementById('6').style="width:22%;height: 62.50px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('6').style="width:77px;height: 63px;";
+		document.getElementById('6').style="width:22%;height: 62.91px;";
 		});
 	});	
 
 siete.addEventListener('mousedown', function() {
-		document.getElementById('7').style="width:76px;height: 62px;";
+		document.getElementById('7').style="width:22%;height: 62px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('7').style="width:77px;height: 63px;";
+		document.getElementById('7').style="width:22%;height: 62.91px;";
 		});
 	});
 	  
 ocho.addEventListener('mousedown', function() {
-		document.getElementById('8').style="width:76px;height: 62px;";
+		document.getElementById('8').style="width:22%;height: 62px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('8').style="width:77px;height: 63px;";
+		document.getElementById('8').style="width:22%;height: 62.91px;";
 		});
 	});
 	
 nueve.addEventListener('mousedown', function() {
-		document.getElementById('9').style="width:76px;height: 62px;";
+		document.getElementById('9').style="width:22%;height: 62px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('9').style="width:77px;height: 63px;";
+		document.getElementById('9').style="width:22%;height: 62.91px;";
 		});
 	});	
 cero.addEventListener('mousedown', function() {
-		document.getElementById('0').style="width:76px;height: 62px;";
+		document.getElementById('0').style="width:29%;height: 62px;";
 		addEventListener('mouseup', function() {
-		document.getElementById('0').style="width:77px;height: 63px;";
+		document.getElementById('0').style="width:29%;height: 62.91px;";
 		});
 	});	
 
+punto.addEventListener('mousedown', function() {
+		document.getElementById('punto').style="width:29%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('punto').style="width:29%;height: 62.91px;";
+		});
+	});	
+	
+igual.addEventListener('mousedown', function() {
+		document.getElementById('igual').style="width:29%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('igual').style="width:29%;height: 62.91px;";
+		});
+	});	
+	
+
+	
+suma.addEventListener('mousedown', function() {
+		document.getElementById('mas').style="width:90%;height: 99%;";
+		addEventListener('mouseup', function() {
+		document.getElementById('mas').style="width:90%;height: 100%;";
+		});
+	});		
+	
+resta.addEventListener('mousedown', function() {
+		document.getElementById('menos').style="width:22%;height: 62.50px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('menos').style="width:22%;height: 62.91px;";
+		});
+	});	
+
+multiplicacion.addEventListener('mousedown', function() {
+		document.getElementById('por').style="width:22%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('por').style="width:22%;height: 62.91px;";
+		});
+	});		
+
+reset.addEventListener('mousedown', function() {
+		document.getElementById('on').style="width:22%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('on').style="width:22%;height: 62.91px;";
+		});
+	});		
+
+signo.addEventListener('mousedown', function() {
+		document.getElementById('sign').style="width:22%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('sign').style="width:22%;height: 62.91px;";
+		});
+	});		
+	
+	
+raiz.addEventListener('mousedown', function() {
+		document.getElementById('raiz').style="width:22%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('raiz').style="width:22%;height: 62.91px;";
+		});
+	});		
+
+	
+division.addEventListener('mousedown', function() {
+		document.getElementById('dividido').style="width:22%;height: 62px;";
+		addEventListener('mouseup', function() {
+		document.getElementById('dividido').style="width:22%;height: 62.91px;";
+		});
+	});		
 	
 //cargar los numeros para la operacion	
 
