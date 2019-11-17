@@ -2,10 +2,11 @@
 var operandoa;
 var operandob;
 var operacion;
+var resultado=0;	
 
 //declaramos variables
 function init(){
-var resultado = document.getElementById('display');
+var resultado1 = document.getElementById('display');
 var reset = document.getElementById('on');
 var suma = document.getElementById('mas');
 var resta = document.getElementById('menos');
@@ -22,7 +23,6 @@ var siete  = document.getElementById('7');
 var ocho   = document.getElementById('8');
 var nueve  = document.getElementById('9');
 var cero   = document.getElementById('0');
-
 
 
 uno.addEventListener('mousedown', function(e) {
@@ -96,14 +96,17 @@ cero.addEventListener('mousedown', function() {
 
 	
 //cargar los numeros para la operacion	
-	
+
 uno.onclick = function(e){
-         if(operandoa==0){
-			 display.textContent = display.textContent  + "1";
+         if(resultado!=0){
+			 resultado.textContent = resultado.textContent  + "5";
+			 
 			}else{
-			display.textContent="1";
+			resultado.textContent="1";
+			
 		 }
 	  }
+	  
 dos.onclick = function(e){
           display.textContent = display.textContent  + "2";
       }
@@ -172,7 +175,28 @@ function resetear(){
   operacion = "";
 }						
 							
-							
+ function resolver(){
+      var res = 0;
+      switch(operacion){
+        case "+":
+          res = parseFloat(operandoa) + parseFloat(operandob);
+          break;
+        case "-":
+            res = parseFloat(operandoa) - parseFloat(operandob);
+            break;
+        case "*":
+          res = parseFloat(operandoa) * parseFloat(operandob);
+          break;
+        case "/":
+          res = parseFloat(operandoa) / parseFloat(operandob);
+          break;
+      }
+      resetear();
+      resultado.textContent = res;
+    }	
+
+
+	
 }		
 	
 	
