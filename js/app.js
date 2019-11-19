@@ -3,7 +3,8 @@ var operandoa=0;
 var operandob=0;
 var operacion=0;
 var resultado=0;	
-var x1=0; //variable para validar cero antes de un numero
+x1=0; //variable para validar cero antes de un numero
+coma=0; //estado decimal 0=no, 1=si;
 
 //declaramos variables
 function init(){
@@ -113,7 +114,6 @@ igual.addEventListener('mousedown', function() {
 		});
 	});	
 	
-
 	
 suma.addEventListener('mousedown', function() {
 		document.getElementById('mas').style="width:90%;height: 99%;";
@@ -172,6 +172,7 @@ uno.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "1";
 		x1=1;
+		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "1";
 		}
@@ -181,6 +182,7 @@ dos.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "2";
 		x1=1;
+		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "2";
 		}
@@ -190,6 +192,7 @@ tres.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "3";
 		x1=1;
+		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "3";
 		}
@@ -257,35 +260,64 @@ cero.onclick = function(e){
 		resultado.textContent = resultado.textContent  + "0";
 		}
 }
+
+punto.onclick = function(e){
+	if (x1==0 && coma==0) { //si escribimos una coma decimal pòr primera vez
+					   resultado.textContent = "0.";
+					   resultado.textContent = resultado.textContent;
+					   coma=1; //cambiar el estado de la coma  
+					   x1=1;
+				   }
+	//si intentamos escribir una segunda coma decimal no realiza ninguna acción.
+				   else if (x1==1 && coma==1){
+						resultado.textContent = resultado.textContent + "." ;
+				   }			   
+				
+}
+
+
+//operadores logicos
 	  	  		  		  	
 on.onclick = function(e){
           resetear();
-      }
-	suma.onclick = function(e){
-		operandoa = resultado.textContent;
-        operacion = "+";
-        limpiar();
-		x1=0;
 }
-      resta.onclick = function(e){
-          operandoa = resultado.textContent;
-          operacion = "-";
-          limpiar();
-      }
-      multiplicacion.onclick = function(e){
-          operandoa = resultado.textContent;
-          operacion = "*";
-          limpiar();
-      }
-      division.onclick = function(e){
-          operandoa = resultado.textContent;
-          operacion = "/";
-          limpiar();
-      }
-      igual.onclick = function(e){
-          operandob = resultado.textContent;
-          resolver();
-      }		  		  		  	
+
+suma.onclick = function(e){
+	operandoa = resultado.textContent;
+    operacion = "+";
+    limpiar();
+	x1=0;
+	coma=0;
+}
+
+resta.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "-";
+    limpiar();
+	x1=0;
+	coma=0;
+}
+
+multiplicacion.onclick = function(e){
+	operandoa = resultado.textContent;
+    operacion = "*";
+    limpiar();
+	x1=0;
+	coma=0;
+}
+
+division.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "/";
+    limpiar();
+	x1=0;
+	coma=0;
+}
+
+igual.onclick = function(e){
+    operandob = resultado.textContent;
+    resolver();
+}		  		  		  	
 		  		  		  	
 
 function limpiar(){
@@ -298,6 +330,7 @@ function resetear(){
   operandob = 0;
   operacion = "";
   x1=0;
+  coma=0;
 }						
 							
  function resolver(){
@@ -326,51 +359,3 @@ function resetear(){
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-/*
-function mayor(){
-	var uno    = document.getElementById('1').style="width:78px;height: 64px;";
-	var dos    = document.getElementById('2').style="width:78px;height: 64px;";
-	var tres   = document.getElementById('3').style="width:78px;height: 64px;";
-	var cuatro = document.getElementById('4').style="width:78px;height: 64px;";
-	var cinco  = document.getElementById('5').style="width:78px;height: 64px;";
-	var seis   = document.getElementById('6').style="width:78px;height: 64px;";
-	var siete  = document.getElementById('7').style="width:78px;height: 64px;";
-	var ocho   = document.getElementById('8').style="width:78px;height: 64px;";
-	var nueve  = document.getElementById('9').style="width:78px;height: 64px;";
-	var cero   = document.getElementById('0').style="width:78px;height: 64px;"
-	
-	}
-
-	function menor(){
-	var uno    = document.getElementById('1').style="width:77px;height: 63px;";
-	var dos    = document.getElementById('2').style="width:77px;height: 63px;";
-	var tres   = document.getElementById('3').style="width:77px;height: 63px;";
-	var cuatro = document.getElementById('4').style="width:77px;height: 63px;";
-	var cinco  = document.getElementById('5').style="width:77px;height: 63px;";
-	var seis   = document.getElementById('6').style="width:77px;height: 63px;";
-	var siete  = document.getElementById('7').style="width:77px;height: 63px;";
-	var ocho   = document.getElementById('8').style="width:77px;height: 63px;";
-	var nueve  = document.getElementById('9').style="width:77px;height: 63px;";
-	var cero   = document.getElementById('0').style="width:77px;height: 63px;"
-	}
-
-
-
-document.getElementById('1').onmousedown=mayor;
-document.getElementById('1').onmouseup=menor;
-document.getElementById('2').onmousedown=mayor;
-document.getElementById('2').onmouseup=menor;
-document.getElementById('3').onmousedown=mayor;
-document.getElementById('3').onmouseup=menor;
-document.getElementById('4').onmousedown=mayor;
-document.getElementById('4').onmouseup=menor;
-
-*/
