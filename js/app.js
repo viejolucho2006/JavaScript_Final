@@ -172,7 +172,6 @@ uno.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "1";
 		x1=1;
-		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "1";
 		}
@@ -182,7 +181,6 @@ dos.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "2";
 		x1=1;
-		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "2";
 		}
@@ -192,7 +190,6 @@ tres.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "3";
 		x1=1;
-		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "3";
 		}
@@ -202,7 +199,6 @@ cuatro.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "4";
 		x1=1;
-		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "4";
 		}
@@ -261,6 +257,15 @@ cero.onclick = function(e){
 		resultado.textContent = resultado.textContent  + "0";
 		}
 }
+
+signo.onclick = function(e){
+	if(x1==0){
+		resultado.textContent = (-1)*resultado.textContent;
+	}
+}
+
+
+
 
 punto.onclick = function(e){
 	var str= resultado.textContent;
