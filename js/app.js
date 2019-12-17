@@ -202,6 +202,7 @@ cuatro.onclick = function(e){
 	if(x1==0){
 		resultado.textContent = "4";
 		x1=1;
+		coma=1;
 	}else{
 		resultado.textContent = resultado.textContent  + "4";
 		}
@@ -262,18 +263,25 @@ cero.onclick = function(e){
 }
 
 punto.onclick = function(e){
-	if (x1==0 && coma==0) { //si escribimos una coma decimal pòr primera vez
+	var str= resultado.textContent;
+	var arreglo = str.split(".");
+	var size = arreglo.length;
+	if (x1==0 && coma==0) { //si escribimos una coma decimal por primera vez
 					   resultado.textContent = "0.";
 					   resultado.textContent = resultado.textContent;
 					   coma=1; //cambiar el estado de la coma  
+					   console.log(resultado.textContent);
 					   x1=1;
 				   }
+				   
+				   
 	//si intentamos escribir una segunda coma decimal no realiza ninguna acción.
-				   else if (x1==1 && coma==1){
+				   else if  ((x1==1 || coma==1) && size<2) {
 						resultado.textContent = resultado.textContent + "." ;
 				   }			   
 				
 }
+
 
 
 //operadores logicos
