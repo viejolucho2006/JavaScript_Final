@@ -4,7 +4,7 @@ var operandob=0;
 var operacion=0;
 var resultado=0;	
 x1=0; //variable para validar cero antes de un numero
-coma=0; //estado decimal 0=no, 1=si;
+
 
 //declaramos variables
 function init(){
@@ -259,7 +259,7 @@ cero.onclick = function(e){
 }
 
 signo.onclick = function(e){
-	if(x1==0){
+	if(x1!=0){
 		resultado.textContent = (-1)*resultado.textContent;
 	}
 }
@@ -271,80 +271,23 @@ punto.onclick = function(e){
 	var str= resultado.textContent;
 	var arreglo = str.split(".");
 	var size = arreglo.length;
-	if (x1==0 && coma==0) { //si escribimos una coma decimal por primera vez
+	if (x1==0 ) { //si escribimos una coma decimal por primera vez
 					   resultado.textContent = "0.";
 					   resultado.textContent = resultado.textContent;
-					   coma=1; //cambiar el estado de la coma  
 					   console.log(resultado.textContent);
 					   x1=1;
 				   }
 				   
 				   
 	//si intentamos escribir una segunda coma decimal no realiza ninguna acción.
-				   else if  ((x1==1 || coma==1) && size<2) {
+				   else if  (x1==1 && size<2) {
 						resultado.textContent = resultado.textContent + "." ;
 				   }			   
 				
 }
 
 
-
-//operadores logicos
-	  	  		  		  	
-on.onclick = function(e){
-          resetear();
-}
-
-suma.onclick = function(e){
-	operandoa = resultado.textContent;
-    operacion = "+";
-    limpiar();
-	x1=0;
-	coma=0;
-}
-
-resta.onclick = function(e){
-    operandoa = resultado.textContent;
-    operacion = "-";
-    limpiar();
-	x1=0;
-	coma=0;
-}
-
-multiplicacion.onclick = function(e){
-	operandoa = resultado.textContent;
-    operacion = "*";
-    limpiar();
-	x1=0;
-	coma=0;
-}
-
-division.onclick = function(e){
-    operandoa = resultado.textContent;
-    operacion = "/";
-    limpiar();
-	x1=0;
-	coma=0;
-}
-
-igual.onclick = function(e){
-    operandob = resultado.textContent;
-    resolver();
-}		  		  		  	
-		  		  		  	
-
-function limpiar(){
-  resultado.textContent = "0";
-}
-
-function resetear(){
-  resultado.textContent = "0";
-  operandoa = 0;
-  operandob = 0;
-  operacion = "";
-  x1=0;
-  coma=0;
-}						
+//calculo de operaciones 
 							
  function resolver(){
       var res = 0;
@@ -365,6 +308,67 @@ function resetear(){
       resetear();
       resultado.textContent = res;
     }	
+
+
+
+
+//operadores logicos
+	  	  		  		  	
+on.onclick = function(e){
+          resetear();
+}
+
+suma.onclick = function(e){
+	operandoa = resultado.textContent;
+    operacion = "+";
+    limpiar();
+	x1=0;
+
+}
+
+resta.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "-";
+    limpiar();
+	x1=0;
+
+}
+
+multiplicacion.onclick = function(e){
+	operandoa = resultado.textContent;
+    operacion = "*";
+    limpiar();
+	x1=0;
+
+}
+
+division.onclick = function(e){
+    operandoa = resultado.textContent;
+    operacion = "/";
+    limpiar();
+	x1=0;
+
+}
+
+igual.onclick = function(e){
+    operandob = resultado.textContent;
+    resolver();
+	x1=1;
+}		  		  		  	
+		  		  		  	
+
+function limpiar(){
+  resultado.textContent = "0";
+}
+
+function resetear(){
+  resultado.textContent = "0";
+  operandoa = 0;
+  operandob = 0;
+  operacion = "";
+  x1=0;
+
+}						
 
 
 	
