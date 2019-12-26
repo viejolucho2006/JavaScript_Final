@@ -5,6 +5,7 @@ var operacion=0;
 var pantalla=0;	
 x1=0; //variable para validar cero antes de un numero
 x2=0; //validador del signo
+
 //declaramos variables
 function init(){
 var pantalla = document.getElementById('display');
@@ -304,32 +305,6 @@ punto.onclick = function(e){
 }
 
 
-//calculo de operaciones 
-							
- function resolver(){
-    var res  = 0;
-	switch(operacion){
-        case "+":
-          res = parseFloat(operandoa) + parseFloat(operandob);
-		  break;
-        case "-":
-            res = parseFloat(operandoa) - parseFloat(operandob);
-            break;
-        case "*":
-          res = parseFloat(operandoa) * parseFloat(operandob);
-          break;
-        case "/":
-          res = parseFloat(operandoa) / parseFloat(operandob);
-          break;
-      }
-      //resetear();
-	  var digito=res.toString();
-	  pantalla.textContent = digito.substring(0,8);
-	  
-    }	
-
-
-
 
 //operadores logicos
 	  	  		  		  	
@@ -373,7 +348,33 @@ igual.onclick = function(e){
 	x2=0;
 }		  		  		  	
 		  		  		  	
+//calculo de operaciones 
+							
+ function resolver(){
+    var res  = 0;
+	switch(operacion){
+        case "+":
+          res = parseFloat(operandoa) + parseFloat(operandob);
+		  break;
+        case "-":
+            res = parseFloat(operandoa) - parseFloat(operandob);
+            break;
+        case "*":
+          res = parseFloat(operandoa) * parseFloat(operandob);
+          break;
+        case "/":
+          res = parseFloat(operandoa) / parseFloat(operandob);
+          break;
+      }
+      //resetear();
+	  var digito=res.toString();
+	  pantalla.textContent = digito.substring(0,8);
+	  
+    }	
 
+							
+							
+							
 function limpiar(){
   pantalla.textContent = " ";
 }
