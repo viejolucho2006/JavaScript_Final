@@ -2,13 +2,13 @@
 var operandoa=0;
 var operandob=0;
 var operacion=0;
-var resultado=0;	
+var pantalla=0;	
 x1=0; //variable para validar cero antes de un numero
 
 
 //declaramos variables
 function init(){
-var resultado = document.getElementById('display');
+var pantalla = document.getElementById('display');
 var reset = document.getElementById('on');
 var signo = document.getElementById('sign');
 var punto  = document.getElementById('punto');
@@ -169,98 +169,118 @@ division.addEventListener('mousedown', function() {
 //cargar los numeros para la operacion	
 
 uno.onclick = function(e){
+	var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "1";
+		pantalla.textContent = "1";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "1";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "1";
 		}
 }
 	  
 dos.onclick = function(e){
+	var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "2";
+		pantalla.textContent = "2";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "2";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "2";
 		}
 }
 
 tres.onclick = function(e){
+	var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "3";
+		pantalla.textContent = "3";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "3";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "3";
 		}
 }
 
 cuatro.onclick = function(e){
+var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "4";
+		pantalla.textContent = "4";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "4";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "4";
 		}
 }
 
 cinco.onclick = function(e){
+var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "5";
+		pantalla.textContent = "5";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "5";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "5";
 		}
 }
 
 seis.onclick = function(e){
+var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "6";
+		pantalla.textContent = "6";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "6";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "6";
 		}
 }
 
 siete.onclick = function(e){
+var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "7";
+		pantalla.textContent = "7";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "7";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "7";
 		}
 }
 
 ocho.onclick = function(e){
+var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "8";
+		pantalla.textContent = "8";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "8";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "8";
 		}
 }
 
 	  
 nueve.onclick = function(e){
+	var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "9";
+		pantalla.textContent = "9";
 		x1=1;
-	}else{
-		resultado.textContent = resultado.textContent  + "9";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "9";
 		}
 }
 
 cero.onclick = function(e){
+	var str= pantalla.textContent;
+	var n = str.length;
 	if(x1==0){
-		resultado.textContent = "0";
-	}else{
-		resultado.textContent = resultado.textContent  + "0";
+		pantalla.textContent = "0";
+	}else if( x1==1 && n<8){
+			pantalla.textContent = pantalla.textContent  + "0";
 		}
 }
 
 signo.onclick = function(e){
 	if(x1!=0){
-		resultado.textContent = (-1)*resultado.textContent;
+		pantalla.textContent = (-1)*pantalla.textContent;
 	}
 }
 
@@ -268,20 +288,18 @@ signo.onclick = function(e){
 
 
 punto.onclick = function(e){
-	var str= resultado.textContent;
+	var str= pantalla.textContent;
 	var arreglo = str.split(".");
 	var size = arreglo.length;
 	if (x1==0 ) { //si escribimos una coma decimal por primera vez
-					   resultado.textContent = "0.";
-					   resultado.textContent = resultado.textContent;
-					   console.log(resultado.textContent);
+					   pantalla.textContent = "0.";
+					   pantalla.textContent = pantalla.textContent;
+					   console.log(pantalla.textContent);
 					   x1=1;
 				   }
-				   
-				   
 	//si intentamos escribir una segunda coma decimal no realiza ninguna acción.
 				   else if  (x1==1 && size<2) {
-						resultado.textContent = resultado.textContent + "." ;
+						pantalla.textContent = pantalla.textContent + "." ;
 				   }			   
 				
 }
@@ -290,11 +308,11 @@ punto.onclick = function(e){
 //calculo de operaciones 
 							
  function resolver(){
-    var res = 0;
+    var res  = 0;
 	switch(operacion){
         case "+":
           res = parseFloat(operandoa) + parseFloat(operandob);
-          break;
+		  break;
         case "-":
             res = parseFloat(operandoa) - parseFloat(operandob);
             break;
@@ -306,7 +324,9 @@ punto.onclick = function(e){
           break;
       }
       resetear();
-      resultado.textContent = res;
+	  var digito=res.toString();
+	  pantalla.textContent = digito.substring(0,8);
+	  
     }	
 
 
@@ -319,7 +339,7 @@ on.onclick = function(e){
 }
 
 suma.onclick = function(e){
-	operandoa = resultado.textContent;
+	operandoa = pantalla.textContent;
     operacion = "+";
     limpiar();
 	x1=0;
@@ -327,7 +347,7 @@ suma.onclick = function(e){
 }
 
 resta.onclick = function(e){
-    operandoa = resultado.textContent;
+    operandoa = pantalla.textContent;
     operacion = "-";
     limpiar();
 	x1=0;
@@ -335,7 +355,7 @@ resta.onclick = function(e){
 }
 
 multiplicacion.onclick = function(e){
-	operandoa = resultado.textContent;
+	operandoa = pantalla.textContent;
     operacion = "*";
     limpiar();
 	x1=0;
@@ -343,7 +363,7 @@ multiplicacion.onclick = function(e){
 }
 
 division.onclick = function(e){
-    operandoa = resultado.textContent;
+    operandoa = pantalla.textContent;
     operacion = "/";
     limpiar();
 	x1=0;
@@ -351,18 +371,18 @@ division.onclick = function(e){
 }
 
 igual.onclick = function(e){
-    operandob = resultado.textContent;
+    operandob = pantalla.textContent;
     resolver();
 	x1=1;
 }		  		  		  	
 		  		  		  	
 
 function limpiar(){
-  resultado.textContent = operandoa;
+  pantalla.textContent = operandoa;
 }
 
 function resetear(){
-  resultado.textContent = "0";
+  pantalla.textContent = "0";
   operandoa = 0;
   operandob = 0;
   operacion = "";
