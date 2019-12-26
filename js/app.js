@@ -4,8 +4,7 @@ var operandob=0;
 var operacion=0;
 var pantalla=0;	
 x1=0; //variable para validar cero antes de un numero
-
-
+x2=0; //validador del signo
 //declaramos variables
 function init(){
 var pantalla = document.getElementById('display');
@@ -279,7 +278,7 @@ cero.onclick = function(e){
 }
 
 signo.onclick = function(e){
-	if(x1!=0){
+	if(x2==0){
 		pantalla.textContent = (-1)*pantalla.textContent;
 	}
 }
@@ -323,7 +322,7 @@ punto.onclick = function(e){
           res = parseFloat(operandoa) / parseFloat(operandob);
           break;
       }
-      resetear();
+      //resetear();
 	  var digito=res.toString();
 	  pantalla.textContent = digito.substring(0,8);
 	  
@@ -340,10 +339,9 @@ on.onclick = function(e){
 
 suma.onclick = function(e){
 	operandoa = pantalla.textContent;
-    operacion = "+";
+	operacion = "+";
     limpiar();
 	x1=0;
-
 }
 
 resta.onclick = function(e){
@@ -351,7 +349,6 @@ resta.onclick = function(e){
     operacion = "-";
     limpiar();
 	x1=0;
-
 }
 
 multiplicacion.onclick = function(e){
@@ -359,7 +356,6 @@ multiplicacion.onclick = function(e){
     operacion = "*";
     limpiar();
 	x1=0;
-
 }
 
 division.onclick = function(e){
@@ -371,14 +367,15 @@ division.onclick = function(e){
 }
 
 igual.onclick = function(e){
-    operandob = pantalla.textContent;
+	operandob = pantalla.textContent;
     resolver();
-	x1=1;
+	x1=0;
+	x2=0;
 }		  		  		  	
 		  		  		  	
 
 function limpiar(){
-  pantalla.textContent = operandoa;
+  pantalla.textContent = " ";
 }
 
 function resetear(){
@@ -387,7 +384,6 @@ function resetear(){
   operandob = 0;
   operacion = "";
   x1=0;
-
 }						
 
 
