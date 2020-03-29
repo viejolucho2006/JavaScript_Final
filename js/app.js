@@ -222,7 +222,19 @@ var calculadora = {
 			this.cargarValores();
 		},
 
-
+	controlSigno: function(){
+		if (this.valorPantalla !="0") {
+			var var1;
+			if (this.valorPantalla.charAt(0)=="-") {
+				var1 = this.valorPantalla.slice(1);
+			}	else {
+				var1 = "-" + this.valorPantalla;
+			}
+		this.valorPantalla = "";
+		this.valorPantalla = var1;
+		this.cargarValores();
+		}
+	},
 
 
 
