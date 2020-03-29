@@ -236,6 +236,19 @@ var calculadora = {
 		}
 	},
 
+	controlComa: function(){
+		if (this.valorPantalla.indexOf(".")== -1) {
+			if (this.valorPantalla == ""){
+				this.valorPantalla = this.valorPantalla + "0.";
+			} else {
+				this.valorPantalla = this.valorPantalla + ".";
+			}
+			this.cargarValores();
+		}
+	},
+	
+
+
 
 
 
