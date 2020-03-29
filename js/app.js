@@ -172,7 +172,59 @@ var calculadora = {
 				});
 			});		
 	},
-	//Fin Cambiar tamaño de botones
+//Fin Cambiar tamaño de botones
+
+//Asignar numeros al presionar un boton de la calculadora
+
+	numeros: function(){
+		document.getElementById("0").addEventListener("click", function() {calculadora.ingresoNumero("0");});
+		document.getElementById("1").addEventListener("click", function() {calculadora.ingresoNumero("1");});
+		document.getElementById("2").addEventListener("click", function() {calculadora.ingresoNumero("2");});
+		document.getElementById("3").addEventListener("click", function() {calculadora.ingresoNumero("3");});
+		document.getElementById("4").addEventListener("click", function() {calculadora.ingresoNumero("4");});
+		document.getElementById("5").addEventListener("click", function() {calculadora.ingresoNumero("5");});
+		document.getElementById("6").addEventListener("click", function() {calculadora.ingresoNumero("6");});
+		document.getElementById("7").addEventListener("click", function() {calculadora.ingresoNumero("7");});
+		document.getElementById("8").addEventListener("click", function() {calculadora.ingresoNumero("8");});
+		document.getElementById("9").addEventListener("click", function() {calculadora.ingresoNumero("9");});
+		document.getElementById("on").addEventListener("click", function() {calculadora.on_c();});
+		document.getElementById("sign").addEventListener("click", function() {calculadora.controlSigno();});
+		document.getElementById("punto").addEventListener("click", function() {calculadora.controlComa();});
+		document.getElementById("dividido").addEventListener("click", function() {calculadora.operadores("/");});
+		document.getElementById("por").addEventListener("click", function() {calculadora.operadores("*");});
+		document.getElementById("menos").addEventListener("click", function() {calculadora.operadores("-");});
+		document.getElementById("mas").addEventListener("click", function() {calculadora.operadores("+");});
+		document.getElementById("igual").addEventListener("click", function() {calculadora.teclaIgual();});
+	},
+
+	ingresoNumero: function(valor){
+		if (this.valorPantalla.length < 8) {
+		
+			if (this.valorPantalla=="0") {
+				this.valorPantalla = "";
+				this.valorPantalla = this.valorPantalla + valor;
+			} else {
+				this.valorPantalla = this.valorPantalla + valor;
+			}
+		this.updateVisor();
+		}
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 //cargar los numeros para la operacion	
 
