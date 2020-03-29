@@ -247,11 +247,58 @@ var calculadora = {
 		}
 	},
 	
+//inicio de funciones para realizar operaciones 
+	operadores: function(calcular){
+		this.operandoA = parseFloat(this.valorPantalla);
+		this.valorPantalla = "";
+		this.operacion = calcular;
+		this.masIgual = false;
+		this.cargarValores();
+	},
 
+	// Control del boton igual, se controla la secuencia de operaciones al presionarlo
+	teclaIgual: function(){ 
 
+		if(!this.masIgual){ 
+			this.operandoB = parseFloat(this.valorPantalla);
+			this.operandoC = this.operandoB;
+			this.realizarOperacion(this.operandoA, this.operandoB, this.operacion);
+		} else { 
+			this.realizarOperacion(this.operandoA, this.operandoC, this.operacion);
+		}
+	
+		this.operandoA = this.resultado;
+		this.valorPantalla = "";
+	
+		if (this.resultado.toString().length < 9){
+			this.valorPantalla = this.resultado.toString();
+		} else {
+			this.valorPantalla = this.resultado.toString().slice(0,8)
+		}
+	
+		this.masIgual = true;		
+		this.cargarValores();
+	},
+	
+	realizarOperacion: function(operandoA, operandoB, operacion){
+		switch(operacion){
+			case "+": 
+				this.resultado = eval(operandoA + operandoB);
+			break;
+			case "-": 
+				this.resultado = eval(operandoA - operandoB);
+			break;
+			case "*": 
+				this.resultado = eval(operandoA * operandoB);
+			break;
+			case "/": 
+				this.resultado = eval(operandoA / operandoB);
+		}
+	},
 
-
-
+//fin de funciones para realizar operaciones 
+	
+	
 	cargarValores: function(){
 		this.pantalla.innerHTML = this.valorPantalla;
 	}
