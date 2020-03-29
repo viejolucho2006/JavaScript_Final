@@ -15,7 +15,8 @@ var calculadora = {
 		this.numeros();
 	}),
 
-//Cambiar tamaño de botones
+//Cambiar tamaño de botones 
+
 	CambioBotones:function(selector){
 		var uno    = document.getElementById('1');	
 		var dos    = document.getElementById('2');
@@ -197,6 +198,7 @@ var calculadora = {
 		document.getElementById("igual").addEventListener("click", function() {calculadora.teclaIgual();});
 	},
 
+	//ingreso numeros
 	ingresoNumero: function(valor){
 		if (this.valorPantalla.length < 8) {
 		
@@ -210,6 +212,7 @@ var calculadora = {
 		}
 	},
 
+	//tecla para limpiar pantalla
 	on_c: function(){ 
 			this.valorPantalla = "0";
 			this.operacion = "";
@@ -222,6 +225,7 @@ var calculadora = {
 			this.cargarValores();
 		},
 
+	//tecla para cambiar el signo al valor en pantalla
 	controlSigno: function(){
 		if (this.valorPantalla !="0") {
 			var var1;
@@ -236,6 +240,7 @@ var calculadora = {
 		}
 	},
 
+	//validar un solo ingrso del punto en el valor
 	controlComa: function(){
 		if (this.valorPantalla.indexOf(".")== -1) {
 			if (this.valorPantalla == ""){
