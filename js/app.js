@@ -206,252 +206,31 @@ var calculadora = {
 			} else {
 				this.valorPantalla = this.valorPantalla + valor;
 			}
-		this.updateVisor();
+		this.cargarValores();
 		}
 	},
 
+	on_c: function(){ 
+			this.valorPantalla = "0";
+			this.operacion = "";
+			this.operandoA = 0;
+			this.operandoB = 0;
+			this.resultado = 0;
+			this.Operación = "";
+			this.masIgual = false;
+			this.operandoC = 0;
+			this.cargarValores();
+		},
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-	
-//cargar los numeros para la operacion	
-
-uno.onclick = function(e){
-	var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "1";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "1";
-		}
-}
-	  
-dos.onclick = function(e){
-	var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "2";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "2";
-		}
-}
-
-tres.onclick = function(e){
-	var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "3";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "3";
-		}
-}
-
-cuatro.onclick = function(e){
-var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "4";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "4";
-		}
-}
-
-cinco.onclick = function(e){
-var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "5";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "5";
-		}
-}
-
-seis.onclick = function(e){
-var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "6";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "6";
-		}
-}
-
-siete.onclick = function(e){
-var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "7";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "7";
-		}
-}
-
-ocho.onclick = function(e){
-var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "8";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "8";
-		}
-}
-
-	  
-nueve.onclick = function(e){
-	var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "9";
-		x1=1;
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "9";
-		}
-}
-
-cero.onclick = function(e){
-	var str= pantalla.textContent;
-	var n = str.length;
-	if(x1==0){
-		pantalla.textContent = "0";
-	}else if( x1==1 && n<8){
-			pantalla.textContent = pantalla.textContent  + "0";
-		}
-}
-
-signo.onclick = function(e){
-	if(x2==0){
-		pantalla.textContent = (-1)*pantalla.textContent;
+	cargarValores: function(){
+		this.pantalla.innerHTML = this.valorPantalla;
 	}
-}
-
-
-
-
-punto.onclick = function(e){
-	var str= pantalla.textContent;
-	var arreglo = str.split(".");
-	var size = arreglo.length;
-	if (x1==0 ) { //si escribimos una coma decimal por primera vez
-					   pantalla.textContent = "0.";
-					   pantalla.textContent = pantalla.textContent;
-					   console.log(pantalla.textContent);
-					   x1=1;
-				   }
-	//si intentamos escribir una segunda coma decimal no realiza ninguna acción.
-				   else if  (x1==1 && size<2) {
-						pantalla.textContent = pantalla.textContent + "." ;
-				   }			   
-				
-}
-
-
-
-//operadores logicos
-	  	  		  		  	
-on.onclick = function(e){
-          resetear();
-}
-
-suma.onclick = function(e){
-	operandoa = pantalla.textContent;
-	operacion = "+";
-    limpiar();
-	x1=0;
-}
-
-resta.onclick = function(e){
-    operandoa = pantalla.textContent;
-    operacion = "-";
-    limpiar();
-	x1=0;
-}
-
-multiplicacion.onclick = function(e){
-	operandoa = pantalla.textContent;
-    operacion = "*";
-    limpiar();
-	x1=0;
-}
-
-division.onclick = function(e){
-    operandoa = pantalla.textContent;
-    operacion = "/";
-    limpiar();
-	x1=0;
-
-}
-
-igual.onclick = function(e){
-	operandob = pantalla.textContent;
-    resolver();
-	x1=0;
-	x2=0;
-}		  		  		  	
-		  		  		  	
-//calculo de operaciones 
-							
- function resolver(){
-    var res  = 0;
-	switch(operacion){
-        case "+":
-          res = parseFloat(operandoa) + parseFloat(operandob);
-		  break;
-        case "-":
-            res = parseFloat(operandoa) - parseFloat(operandob);
-            break;
-        case "*":
-          res = parseFloat(operandoa) * parseFloat(operandob);
-          break;
-        case "/":
-          res = parseFloat(operandoa) / parseFloat(operandob);
-          break;
-      }
-      //resetear();
-	  var digito=res.toString();
-	  pantalla.textContent = digito.substring(0,8);
-	  
-    }	
-
-							
-							
-							
-function limpiar(){
-  pantalla.textContent = " ";
-}
-
-function resetear(){
-  pantalla.textContent = "0";
-  operandoa = 0;
-  operandob = 0;
-  operacion = "";
-  x1=0;
-}						
-
-
-	
-}		
-
 
 }	
 	
-	
+calculadora.init();	
